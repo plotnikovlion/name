@@ -1,0 +1,55 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        String name = in.nextLine();
+        int age = in.nextInt();
+        in.nextLine();
+        String group=in.nextLine();
+        int year=in.nextInt();
+        int av_ball = in.nextInt();
+        int percent=in.nextInt();
+        int completed=in.nextInt();
+        in.nextLine();
+        String stip=in.nextLine();
+        in.nextLine();
+        String fav_sub=in.nextLine();
+        int stip_rub=in.nextInt();
+        in.nextLine();
+        String last_stip=in.nextLine();
+        System.out.printf("==================================================\n");
+        System.out.printf("%40s","ТАБЛИЦА ДОСТИЖЕНИЙ УЧЕНИКА\n");
+        System.out.printf("==================================================\n");
+        System.out.printf("ФИО студента");
+        System.out.printf("%12s",": ");
+        System.out.printf(name+"\n");
+        System.out.printf("Возраст");
+        System.out.printf("%17s",": ");
+        System.out.printf(age+" лет\n");
+        System.out.printf("Группа");
+        System.out.printf("%18s",": ");
+        System.out.printf(group+"\n");
+        System.out.printf("Год поступления");
+        System.out.printf("%9s",": ");
+        System.out.printf(year+"\n");
+        System.out.printf("Средний балл");
+        System.out.printf("%12s",": ");
+        System.out.printf(av_ball+"\n");
+        System.out.printf("Посещаемость");
+        System.out.printf("%12s",": ");
+        System.out.println(percent+"%");
+        System.out.printf("Курсов завершено");
+        System.out.printf("%8s",": ");
+        System.out.printf(completed+"\n");
+        System.out.printf("Получает стипендию");
+        System.out.printf("%6s",": ");
+        System.out.printf(fav_sub+"\n");
+        System.out.printf("Стипендия");
+        System.out.printf("%15s",": ");
+        System.out.printf(stip_rub+" руб.\n");
+        System.out.printf("Последняя стипендия");
+        System.out.printf("%5s",": ");
+        System.out.printf(last_stip+"\n");
+        System.out.printf("==================================================\n");
+    }
+}
