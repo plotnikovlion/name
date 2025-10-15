@@ -1,0 +1,97 @@
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        System.out.printf("%40s","ОПРЕДЕЛИТЕЛЬ ВРЕМЕНИ ГОДА И ПОГОДЫ\n");
+        System.out.printf("==================================================\n");
+        try {
+            String name_month="";
+            System.out.print("Введите номер месяца (1-12):");
+            try{int month= in.nextInt();
+            while(month<=0 | month>12){
+                System.out.println("Введите корректный номер месяца!");}}
+            catch(Exception err){
+                System.out.println("Введите номер месяца!");
+                boolean isInteger = ((String) month).matches("-?\\d+");
+                while (isInteger!=false){
+                    System.out.println("Введите корректный номер месяца!");
+                }
+            }
+
+            month=in.nextInt();
+            System.out.println("Введите текущую температуру:");
+            int temp=in.nextInt();
+            String time_of_weather="";
+            String recomendations="";
+            switch(month){
+                case 1:
+                    name_month="Январь";
+                    time_of_weather="ЗИМА";
+                    break;
+                case 2:
+                    name_month="Февраль";
+                    time_of_weather="ЗИМА";
+                    break;
+                case 3:
+                    name_month="Март";
+                    time_of_weather="ВЕСНА";
+                    break;
+                case 4:
+                    name_month="Апрель";
+                    time_of_weather="ВЕСНА";
+                    break;
+                case 5:
+                    name_month="Май";
+                    time_of_weather="ВЕСНА";
+                    break;
+                case 6:
+                    name_month="Июнь";
+                    time_of_weather="ЛЕТО";
+                    break;
+                case 7:
+                    name_month="Июль";
+                    time_of_weather="ЛЕТО";
+                    break;
+                case 8:
+                    name_month="Август";
+                    time_of_weather="ЛЕТО";
+                    break;
+                case 9:
+                    name_month="Сентябрь";
+                    time_of_weather="ОСЕНЬ";
+                    break;
+                case 10:
+                    name_month="Октябрь";
+                    time_of_weather="ОСЕНЬ";
+                    break;
+                case 11:
+                    name_month="Ноябрь";
+                    time_of_weather="ОСЕНЬ";
+                    break;
+                case 12:
+                    name_month="Декабрь";
+                    time_of_weather="ЗИМА";
+                    break;
+            }
+            if (temp<=-10){
+                recomendations="Морозная погода. Оденьтесь потеплее!!!\nСОВЕТЫ:\nОсторожно! На дорогах может быть гололёд!";}
+            if (temp>-10 && temp<10){
+                recomendations="На улице прохладно. Возможен сильный ветер.\nСОВЕТЫ:\nНе забывайте надевать шарф и шапку!";}
+            if (temp>=10 && temp<=20){
+                recomendations="На улице комфортная погода.\nСОВЕТЫ:\nМожно надеть футболку и штаны, но не забудьте про кофту!";}
+            if (temp>20 && temp<=30){
+                recomendations="На улице жарко!\nСОВЕТЫ:\nНе забывайте про головные уборы и солнцезащитные крема!";}
+            if (temp>30){
+                recomendations="На улице экстремально жарко!\nСОВЕТЫ:\nЛучше сегодня не выходить из дома без особой надобности!";}
+            System.out.println("РЕЗУЛЬТАТЫ:");
+            System.out.println("===============");
+            System.out.println("Месяц: "+name_month+". Время года: "+time_of_weather+".\nТемпература: "+temp+"°C.\n"+recomendations);
+        }
+        catch(Exception e){
+            System.out.print("Введите корректные данные!");
+        }
+    in.close();
+    }
+}
