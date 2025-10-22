@@ -1,0 +1,58 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        double sum=0;
+        int kol=0;
+        double chayevye=0;
+        boolean isValidKol=false;
+        boolean isValidSum=false;
+        boolean isValidChayevye=false;
+        System.out.println("=== Калькулятор чаевых ===\n");
+        while(!isValidSum){
+            try{
+                System.out.println("Введите сумму счета: ");
+                sum=in.nextDouble();
+                if (sum>0){
+                    isValidSum=true;
+                }
+                else{
+                    System.out.println("Сумма должна быть положительной!");
+                }
+            } catch(Exception e){
+                System.out.println("Ошибка: введено не число!");
+                in.nextLine();
+            }
+        }
+        while(!isValidKol){
+        try{
+            System.out.println("Введите количество человек: ");
+            kol=in.nextInt();
+            if (kol>0){
+                isValidKol=true;}
+            else{
+                System.out.println("Количество человек должно быть положительно!");
+            }}
+        catch(Exception e){
+            System.out.println("Ошибка: введено не число!");
+            in.nextLine();}}
+        while(!isValidChayevye){
+            try{
+                System.out.println("Введите процент чаевых: ");
+                chayevye=in.nextDouble();
+                if (chayevye>=0){
+                    isValidChayevye=true;}
+                else{
+                    System.out.println("Сумма чаевых должна быть больше либо равной 0!");
+                }}
+            catch(Exception e){
+                System.out.println("Ошибка: введено не число!");
+                in.nextLine();}}
+        System.out.println("Результат:\n----------");
+        System.out.printf("Общая сумма: %.2f руб\n",(1+chayevye/100)*sum);
+        System.out.printf("Сумма на человека: %.2f руб\n",sum/kol);
+        System.out.printf("Чаевые: %.2f руб (%.2f",sum*(chayevye/100),chayevye);
+        System.out.print("%)");
+
+    }
+}
