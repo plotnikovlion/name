@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        String text="Добро пожаловать в наше приложение! ";
+        int ConsoleWidth=30;
+        runningLine(text,ConsoleWidth);
+        //printColored(text,ConsoleWidth);
+    }
+    static final String RESET="\u001B[0m";
+    static final String RED="\u001B[31m";
+    static final String YELLOW="\u001B[33m";
+    static final String GREEN="\u001B[32m";
+    static final String CYAN="\u001B[36m";
+    static final String BLUE="\u001B[34m";
+
+    static void runningLine(String text,int ConsoleWidth) throws InterruptedException {
+        String[]colors={RED,YELLOW,GREEN,CYAN,BLUE};
+        int start=0;
+        String string="                              ";
+        while(true){
+            String textLine=text.substring(start,start);
+            for (int i = start; i < (ConsoleWidth+start)%text.length(); i++) {
+                string=string+text.charAt(i);
+            }
+            for (int i=start;i<(ConsoleWidth+start)%text.length();i++){
+                String text1= String.valueOf(string.charAt(i));
+                String color=colors[i%5];
+                System.out.print(color+text1+RESET);
+            }
+            Thread.sleep(100);
+            System.out.print("\r");
+            start+=1;
+            string="                              ";
+        }
+        }
+}
