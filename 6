@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Main1 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите ваше ФИО:");
+        String fullName = in.nextLine();
+        System.out.println("Что вы хотите сделать?\n1 - ФИО в форматие Фамилия И.О.\n2 - ФИ в почту.");
+        int choose = in.nextInt();
+        if (choose == 1) {
+            System.out.println(formatName(fullName));
+        } else if (choose==2) {
+            System.out.println(generateEmail(fullName));
+        }
+        }
+
+    public static String formatName(String fullName) {
+        String[] words = fullName.split(" ");
+        String name = words[1];
+        String surname = words[0];
+        String patronymic = words[2];
+        name = name.toLowerCase();
+        surname = surname.toLowerCase();
+        patronymic = patronymic.toLowerCase();
+        surname = String.valueOf(surname.charAt(0)).toUpperCase() + surname.substring(1);
+        name = String.valueOf(name.charAt(0)).toUpperCase();
+        patronymic = String.valueOf(name.charAt(0)).toUpperCase();
+//        System.out.print(surname + " " + name + "." + patronymic + ".");
+        return surname + " " + name + "." + patronymic + ".";
+    }
+}
+    public static String generateEmail(String fullName){
+        String[] russian
+}
