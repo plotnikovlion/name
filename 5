@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        String string=in.nextLine();
+        StringBuilder stringBuilder=new StringBuilder(string);
+        stringBuilder.reverse();
+        String string1 =stringBuilder.toString();
+        if (string.equals(string1)){
+            System.out.print("Строка является палиндромом");
+        }
+        else {
+            System.out.print("Строка не является палиндромом");
+        }
+    }
+}
