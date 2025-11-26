@@ -1,0 +1,70 @@
+import java.util.Arrays;
+public class ArrayHelper {
+    static void printArray(int[] numbers){
+        System.out.println(Arrays.toString(numbers));
+    }
+    static int findMax(int[]numbers){
+        int max=numbers[0];
+        for(int i=1;i< numbers.length;i++){
+            if(numbers[i]>max){
+                max=numbers[i];
+            }
+        }
+        return max;
+    }
+    static int findMin(int[] numbers){
+        int min=numbers[0];
+        for(int i=1;i<numbers.length;i++){
+            if(numbers[i]<min){
+                min=numbers[i];
+            }
+        }
+        return min;
+    }
+    static int calculateSum(int[] numbers){
+        int sum=0;
+        for(int i=0;i<numbers.length;i++){
+            sum+=numbers[i];
+        }
+        return sum;
+    }
+    static double calculateAverage(int[]numbers){
+        int sum=0;
+        int kol=numbers.length;
+        for(int i=0;i<numbers.length;i++){
+            sum+=numbers[i];
+        }
+        return sum/kol;
+
+    }
+    static String contains(int[] numbers, int num){
+        boolean cont=false;
+        for(int i=0;i<numbers.length;i++){
+            if (numbers[i]==num){
+                cont=true;
+            }
+        }
+        return cont ? "Число содержится в массиве" : "Число не содержится в массиве";
+        if (cont){
+            return "Число содержится в массиве";
+        }else{
+            return "Число не содержится в массиве";
+        }
+    }
+    static int findIndex(int[] numbers,int num){
+        int index=-1;
+        for(int i=0;i<numbers.length;i++){
+            if (numbers[i]==num){
+                index=i;
+            }
+        }
+        return index;
+    }
+    static int[] reverse(int[]numbers){
+        int []nums=new int[numbers.length];
+        for(int i=0;i<numbers.length;i++){
+            nums[i]=numbers[numbers.length-1-i];
+        }
+        return nums;
+    }
+}
