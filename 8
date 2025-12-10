@@ -1,0 +1,122 @@
+import java.util.Scanner;
+public class Student {
+    Scanner in=new Scanner(System.in);
+    private int id=0;
+    private String name;
+    private int age;
+    private double grade;
+    private String email;
+    private boolean isActive=true;
+    public Student(int id,String name, int age, double grade, String email){
+        setId();
+        getId();
+        setName();
+        getName();
+        setAge();
+        getAge();
+        setGrade();
+        getGrade();
+        setEmail();
+        getEmail();
+    }
+    public Student(){}
+    public void setId(){
+        int newId=in.nextInt();
+        in.next();
+        if (newId>=0){
+            id=newId;
+        }else{
+            System.out.println("Введено некорректное значение идентификатора!");
+        }
+    }
+    public void getId(){
+        System.out.println("Идентификатор: "+id);
+    }
+    public void setName() {
+        String newName=in.nextLine();
+        in.next();
+        if (newName.length()>=2){
+            name=newName;
+        }else{
+            System.out.println("Имя должно содержать минимум 2 символа!");
+        }
+    }
+    public void getName() {
+        System.out.println("Имя: "+name);
+    }
+    public void setAge() {
+        int newAge=in.nextInt();
+        in.next();
+        if(newAge>=16&newAge<=60){
+            age=newAge;
+        }else{
+            System.out.println("Возраст должен быть от 16 до 60 лет!");
+        }
+    }
+    public void getAge() {
+        System.out.println("Возраст: "+age);
+    }
+    public void setGrade() {
+        double newGrade=in.nextDouble();
+        in.next();
+        if (newGrade>=2&newGrade<=5){
+            grade=newGrade;
+        }else{
+            System.out.println("Оценка должна быть от 2.0 до 5.0!");
+        }
+    }
+    public void getGrade() {
+        System.out.println("Оценка: "+grade);
+    }
+    public void setEmail() {
+        String newEmail=in.nextLine();
+        in.next();
+        if(newEmail.lastIndexOf("@")<newEmail.lastIndexOf(".")&newEmail.lastIndexOf("@")>-1){
+            email=newEmail;
+        }else{
+            System.out.println("Некорректный email адрес!");
+        }
+    }
+    public void getEmail() {
+        System.out.println("Email: "+email);
+    }
+}
+---------------------------
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        Student stud1=new Student(1,"Ivan",20,5.0,"ivan@mail.com");
+        StudentManager sm=new StudentManager(5);
+        sm.addStudent(stud1);
+        sm.printAllStudents();
+    }
+------------------------------------
+public class StudentManager {
+    private Student[] students;
+    private int count;
+    public StudentManager(int capacity){
+
+    }
+    public void addStudent(Student student){
+
+    }
+    public boolean removeStudent(int id){
+
+    }
+    public Student findStudentById(int id){
+
+    }
+    public Student[] getActiveStudents(){
+
+    }
+    public double getAverageGrade(){
+
+    }
+    public void printAllStudents(){
+
+    }
+
+}
+
+}
