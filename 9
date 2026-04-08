@@ -1,0 +1,33 @@
+import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.time.LocalTime;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+//        FileReader fr =new FileReader("file.txt");
+//        Scanner scan = new Scanner(fr);
+//        while(scan.hasNextLine()){
+//            System.out.println(scan.nextLine());
+//        }
+//        fr.close();
+        Files.createFile(Path.of("file.txt"));
+        Path file=Path.of("file.txt");
+        String text=Files.readString(file);
+        String[] data=text.split(" ");
+        String[] dates_days ={"1st","2nd","3rd","4th","5th","6th"};
+        String[] dates_months={"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
+        String[] dates_years=new String[201];
+        for(int i=1900;i<2101;i++){
+            dates_years[i-1900]= String.valueOf(i);
+        }
+        System.out.println(Arrays.toString(dates_years));
+        if(Arrays.asList(data).contains(dates_days)) {
+
+        }
+    }
+}
