@@ -1,0 +1,58 @@
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        StringBuilder stringBuilder= new StringBuilder(new String());
+        try (FileReader reader = new FileReader("/home/user2/Рабочий стол/file.txt")) {
+            int c;
+            while ((c = reader.read()) != -1) {
+                stringBuilder.append((char) c);
+            }
+            reader.close();
+        }catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
+        stringBuilder.setLength(stringBuilder.length()-1);
+        String[] fullDate = stringBuilder.toString().split(" ");
+        StringBuilder number=new StringBuilder(fullDate[0]);
+        number.setLength(number.length()-2);
+        String month=new String();
+        if (fullDate[1].equals("Jan")){
+            month="01";
+        } else if (fullDate[1].equals("Feb")) {
+            month="02";
+        }else if (fullDate[1].equals("Mar")) {
+            month="03";
+        }else if (fullDate[1].equals("Apr")) {
+            month="04";
+        }else if (fullDate[1].equals("May")) {
+            month="05";
+        }else if (fullDate[1].equals("Jun")) {
+            month="06";
+        }else if (fullDate[1].equals("Jul")) {
+            month="07";
+        }else if (fullDate[1].equals("Aug")) {
+            month="08";
+        }else if (fullDate[1].equals("Sep")) {
+            month="09";
+        }else if (fullDate[1].equals("Oct")) {
+            month="10";
+        }else if (fullDate[1].equals("Nov")) {
+            month="11";
+        }else if (fullDate[1].equals("Dec")) {
+            month="12";
+        }
+        if (number.length()<2){
+            number= new StringBuilder("0" + number);
+        }
+        try(FileWriter writer=new FileWriter("/home/user2/Рабочий стол/file.txt",true)){
+            String text=fullDate[2]+"-"+month+"-"+number;
+            writer.write(text);
+            writer.flush();
+        }catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+}
