@@ -14,10 +14,9 @@ public class Main {
             return;
         }
 
-        int numberOfWords = 1;
+        int numberOfWords = 0;
         int numberOfLetters = 0;
         int numberOfSentences = 0;
-        int numberOfComma = 0;
 
         for (int i = 0; i<text.length(); i++){
             if (text.substring(i, i+1).equals(" ")){
@@ -32,15 +31,14 @@ public class Main {
         }
 
         for (int i = 0; i<text.length(); i++){
-            if (text.substring(i, i+1).equals(",")){
-                numberOfComma ++;
-            }
-            if (text.substring(i, i+1).equals(".") || text.substring(i, i+1).equals("!") || text.substring(i, i+1).equals("?") || text.substring(i, i+1).equals(" ") || text.substring(i, i+1).equals("\n") || text.substring(i, i+1).equals(",")) {
-                text.replace(i, i + 1, "");
+            if (Character.isLetter(text.charAt(i))) {
+                numberOfLetters ++;
             }
         }
-        numberOfLetters = text.length() - numberOfSentences - numberOfComma;
 
+        if (numberOfWords > 0){
+            numberOfWords ++;
+        }
         System.out.println("Количество слов: " + numberOfWords);
         System.out.println("Количество букв: " + numberOfLetters);
         System.out.println("Количество предложений: " + numberOfSentences);
